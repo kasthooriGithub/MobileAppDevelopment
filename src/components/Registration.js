@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db } from "../firebase"; // adjust path if needed
+import { db } from "../firebase"; 
 import { collection, addDoc } from "firebase/firestore";
 
 function Registration() {
