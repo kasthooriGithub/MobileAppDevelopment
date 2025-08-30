@@ -88,8 +88,8 @@ function UserList() {
   );
 
   return (
-    <div className="container mt-5">
-      <h2>Registered Users</h2>
+    <div className="card shadow p-4">
+      <h2 className="mb-3">Registered Users</h2>
 
       {/* Loader */}
       {loading && (
@@ -108,29 +108,31 @@ function UserList() {
       />
 
       {/* Table */}
-      <table className="table table-bordered table-hover table-striped mt-3" style={{ border: "2px solid black" }}>
-        <thead>
-          <tr>
-            <th onClick={() => sortBy("name")}>Name</th>
-            <th onClick={() => sortBy("email")}>Email</th>
-            <th>Phone</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredUsers.map(user => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>{user.phone}</td>
-              <td>
-                <Button size="sm" className="me-2" onClick={() => handleEdit(user)} disabled={loading}>Edit</Button>
-                <Button size="sm" variant="danger" onClick={() => handleDelete(user.id)} disabled={loading}>Delete</Button>
-              </td>
+      <div className="table-responsive">
+        <table className="table table-bordered table-hover table-striped mt-3">
+          <thead className="table-dark">
+            <tr>
+              <th onClick={() => sortBy("name")} style={{ cursor: "pointer" }}>Name</th>
+              <th onClick={() => sortBy("email")} style={{ cursor: "pointer" }}>Email</th>
+              <th>Phone</th>
+              <th>Actions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredUsers.map(user => (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
+                <td>
+                  <Button size="sm" className="me-2" onClick={() => handleEdit(user)} disabled={loading}>Edit</Button>
+                  <Button size="sm" variant="danger" onClick={() => handleDelete(user.id)} disabled={loading}>Delete</Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       {/* Edit Modal */}
       <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>

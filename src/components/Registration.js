@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { db } from "../firebase"; 
+import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore";
 import { Button, Spinner } from "react-bootstrap";
 
@@ -39,9 +39,8 @@ function Registration() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Registration Form</h2>
-
+    <div className="card shadow p-4">
+      <h2 className="mb-4">Registration Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label className="form-label">Name:</label>
