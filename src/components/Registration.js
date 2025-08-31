@@ -39,61 +39,67 @@ function Registration() {
   };
 
   return (
-    <div className="card shadow p-4">
-      <h2 className="mb-4">Registration Form</h2>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Name:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            minLength={3}
-          />
-        </div>
+    <div className="container mt-5">
+      <div className="row justify-content-center">
+        <div className="col-md-8 col-lg-6">
+          <div className="card shadow p-4">
+            <h2 className="mb-4 text-center">Registration Form</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label className="form-label">Name:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  minLength={3}
+                />
+              </div>
 
-        <div className="mb-3">
-          <label className="form-label">Email:</label>
-          <input
-            type="email"
-            className="form-control"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
+              <div className="mb-3">
+                <label className="form-label">Email:</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
 
-        <div className="mb-3">
-          <label className="form-label">Phone:</label>
-          <input
-            type="text"
-            className="form-control"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            maxLength={10}
-          />
-        </div>
+              <div className="mb-3">
+                <label className="form-label">Phone:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  maxLength={10}
+                />
+              </div>
 
-        <Button type="submit" variant="primary" disabled={loading}>
-          {loading ? (
-            <>
-              <Spinner animation="border" size="sm" className="me-2" />
-              Submitting...
-            </>
-          ) : (
-            "Register"
-          )}
-        </Button>
-      </form>
+              <Button type="submit" variant="primary" className="w-100" disabled={loading}>
+                {loading ? (
+                  <>
+                    <Spinner animation="border" size="sm" className="me-2" />
+                    Submitting...
+                  </>
+                ) : (
+                  "Register"
+                )}
+              </Button>
+            </form>
 
-      {success && (
-        <div className="alert alert-success mt-3" role="alert">
-          Registration successful!
+            {success && (
+              <div className="alert alert-success mt-3 text-center" role="alert">
+                Registration successful!
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }
