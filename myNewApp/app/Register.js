@@ -14,17 +14,17 @@ const RegistrationScreen = () => {
   const handleSubmit = async () => {
     // --- Validation ---
     if (name.length < 3) {
-      Alert.alert('Validation Error', 'Name must be at least 3 characters');
+      Alert.alert('Error', 'Name must be at least 3 characters');
       return;
     }
 
     if (!email.includes('@')) {
-      Alert.alert('Validation Error', 'Invalid email');
+      Alert.alert('Error', 'Invalid email');
       return;
     }
 
     if (phone.length !== 10 || isNaN(phone)) {
-      Alert.alert('Validation Error', 'Phone must be 10 digits and numeric');
+      Alert.alert('Error', 'Phone must be 10 digits and numeric');
       return;
     }
 
